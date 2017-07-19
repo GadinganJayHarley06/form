@@ -8,16 +8,16 @@ from django.db import models
 
 
 class Detail(models.Model):
-	fist_name = models.CharField(max_length=150)
+	first_name = models.CharField(max_length=150)
 	last_name = models.CharField(max_length=150)
 	middle_name = models.CharField(max_length=150)
 	age = models.IntegerField()
-	birthday = models.DateTimeField('datepublished')
+	birthday = models.DateTimeField()
 	course = models.CharField(max_length=150)
 	course = models.ManyToManyField("Course", related_name="Details")
 
 	def __str__(self):
-		return "{} by {}".format(self.first_name, self.list_course())
+		return "{} - {}".format(self.first_name, self.list_course())
 		return self.first_name
 
 	def list_course(self):
