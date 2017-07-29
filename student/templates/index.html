@@ -1,0 +1,27 @@
+<body>
+
+	<h1>HELLO</h1>
+
+	{% if request.user.is_authenticated %}
+	<h1>Hi {{ request.user.username|title }}</h1>
+	{% else %}
+		<p>WELCOME!!</p>
+	{% endif %}
+	
+	<h2>STUDENT</h2>
+	<p>{{ student.count }} student</p>
+	
+	{% for student in students %}
+	
+	<p>{{ student.first_name}} {{ student.last_name}} </p>
+	{% endfor %}
+
+
+	<h3>COURSES</h3>
+	<p>{{ Course.count }} Course</p>
+	{% for courses in courses %}
+	<p>{{ courses.course_name}} {{ courses.course_description}} </p>
+	{% endfor %}
+
+
+</body>
